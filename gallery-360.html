@@ -1,0 +1,115 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>360°ProtoTypeVar</title>
+        <!--A-Frameセット-->
+        <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+        <!--A-Frame内イベント処理用-->
+        <script src="https://unpkg.com/aframe-event-set-component@5.0.0/dist/aframe-event-set-component.min.js"></script>
+        <link rel="stylesheet" href="css/style.css">
+
+    </head>
+    <body>
+
+        <div class="info-box">
+            <strong>＊方角＊</strong>
+            <h4 class='east'>青色の壁 = 東の壁</h4>
+            <h4 class='west'>白色の壁 = 西の壁</h4>
+            <h4 class='south'>赤色の壁 = 南の壁</h4>
+            <h4 class='north'>黒色の壁 = 北の壁</h4>
+            <h4>カーソルがブロックの方向の時は緑色</h4>
+        </div>
+
+         <div class="button-container">
+            <label class="button-sample1" for="popupFlag1">メニューマップ</label>
+        </div>
+
+        <input type="checkbox" class="popup-flag" id="popupFlag1">
+        <label class="popup-background" for="popupFlag1"></label>
+        <div class="popup">
+        <label class="close-button" for="popupFlag1"></label>
+            <div class="content">
+                <h3>マップ</h3>
+                 <a href="index.html" class="btn">ホームへ</a>
+                 <a href="2ndimage.html" class="btn">2番へ</a>
+                 <a href="3rdimage.html" class="btn">3番へ</a>
+                 <a href="4thimage.html" class="btn">4番へ</a>
+                 <a href="5thimage.html" class="btn">5番へ</a>
+                 <h4>ルーム1</h4>
+            </div>
+        </div>
+
+        <!--a-〇〇はA-Frameの内容-->
+        <a-scene>
+            <!-- 背景 -->
+            <a-sky id="sky" src="images/room.jpeg" rotation="0 0 0"></a-sky>
+
+            <a-entity light="type: ambient; color: #ffffff; intensity: 1"></a-entity>
+            <a-entity light="type: directional; color: #ffffff; intensity: 0.5" position="1 2 1"></a-entity>
+
+            <!-- 北の壁(黒色)（Zマイナス方向） -->
+            <a-box id="north"position="0 1 -5" depth="0.1" height="2" width="10" color="#1C1C1C" material="opacity: 0.5; transparent: true; side: double"
+            event-set__enter="_event: mouseenter; material.color: #9acd32; scale: 3 1 1"
+            event-set__leave="_event: mouseleave; material.color: #1C1C1C; scale: 1 1 1">
+                <a-animation attribute="rotation" begin="click" dur="500" fill="backwards" to="30 30 360"></a-animation>
+            </a-box>
+            <a-text value="北" position="0 2.1 -4.95" color="#FFFFFF" align="center" width="6"></a-text>
+
+            <!-- 南の壁(赤色)（Zプラス方向） -->
+             <a-box id="south"position="0 1 5" depth="0.1" height="2" width="10" color="#D72638" material="opacity: 0.5; transparent: true; side: double"
+            event-set__enter="_event: mouseenter; material.color: #9acd32; scale: 3 1 1"
+            event-set__leave="_event: mouseleave; material.color: #D72638; scale: 1 1 1">
+                <a-animation attribute="rotation" begin="click" dur="500" fill="backwards" to="30 30 360"></a-animation>
+            </a-box>
+            <a-text value="南" position="0 2.1 4.95" color="#FFFFFF" align="center" width="6"></a-text>
+
+            <!-- 東の壁(青緑色)（Xプラス方向） -->
+            <a-box  id="east"position="5 1 0" rotation="0 90 0" depth="0.1" height="2" width="10" color="#0077BE" material="opacity: 0.5; transparent: true; side: double"
+            event-set__enter="_event: mouseenter; material.color: #9acd32; scale: 3 1 1"
+            event-set__leave="_event: mouseleave; material.color: #0077BE; scale: 1 1 1">
+                <a-animation attribute="rotation" begin="click" dur="500" fill="backwards" to="30 30 360"></a-animation>
+            </a-box>
+            <a-text value="東" position="4.95 2.1 0" rotation="0 -90 0" color="#FFFFFF" align="center" width="6"></a-text>
+
+            <!-- 西の壁(白色)（Xマイナス方向） -->
+            <a-box id="west"position="-5 1 0" rotation="0 90 0" depth="0.1" height="2" width="10" color="#FFFFFF" material="opacity: 0.5; transparent: true; side: double"
+            event-set__enter="_event: mouseenter; material.color: yellowgreen; scale: 3 1 1"
+            event-set__leave="_event: mouseleave; material.color: #FFFFFF; scale: 1 1 1">
+                <a-animation attribute="rotation" begin="click" dur="500" fill="backwards" to="30 30 360"></a-animation>
+            </a-box>
+            <a-text value="西" position="-4.95 2.1 0" rotation="0 90 0" color="#000000" align="center" width="6"></a-text>  
+
+            <!--レティクル(真ん中の点)-->
+            <a-camera>
+                <a-cursor></a-cursor>
+            </a-camera>
+
+        </a-scene>
+    
+        
+
+
+        <script src="script.js"></script>
+        <script>
+            document.querySelector('#north').addEventListener('click', () => {
+                window.location.href = '2ndimage.html'; // 北壁クリック時リンク移動処理
+            });
+        </script>
+        <script>
+            document.querySelector('#south').addEventListener('click', () => {
+                window.location.href = '3rdimage.html'; // 南壁クリック時リンク移動処理
+            });
+        </script>
+         <script>
+            document.querySelector('#east').addEventListener('click', () => {
+                window.location.href = '4thimage.html'; // 東壁クリック時リンク移動処理
+            });
+        </script>
+        <script>
+            document.querySelector('#west').addEventListener('click', () => {
+                window.location.href = '5thimage.html'; // 西壁クリック時リンク移動処理
+            });
+        </script>
+    </body>
+</html>
