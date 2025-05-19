@@ -50,7 +50,7 @@
             <a-entity light="type: directional; color: #ffffff; intensity: 0.5" position="1 2 1"></a-entity>
 
             <!-- 北の壁(黒色)（Zマイナス方向） -->
-            <a-box id="north"position="0 1 -5" depth="0.1" height="2" width="10" color="#1C1C1C" material="opacity: 0.5; transparent: true; side: double"
+            <a-box id="north"position="0 1 -5" depth="0.1" height="2" width="10" color="#1C1C1C" material="opacity: 0.2; transparent: true; side: double"
             event-set__enter="_event: mouseenter; material.color: #9acd32; scale: 3 1 1"
             event-set__leave="_event: mouseleave; material.color: #1C1C1C; scale: 1 1 1">
                 <a-animation attribute="rotation" begin="click" dur="500" fill="backwards" to="30 30 360"></a-animation>
@@ -58,7 +58,7 @@
             <a-text value="北" position="0 2.1 -4.95" color="#FFFFFF" align="center" width="6"></a-text>
 
             <!-- 南の壁(赤色)（Zプラス方向） -->
-             <a-box id="south"position="0 1 5" depth="0.1" height="2" width="10" color="#D72638" material="opacity: 0.5; transparent: true; side: double"
+             <a-box id="south"position="0 1 5" depth="0.1" height="2" width="10" color="#D72638" material="opacity: 0.2; transparent: true; side: double"
             event-set__enter="_event: mouseenter; material.color: #9acd32; scale: 3 1 1"
             event-set__leave="_event: mouseleave; material.color: #D72638; scale: 1 1 1">
                 <a-animation attribute="rotation" begin="click" dur="500" fill="backwards" to="30 30 360"></a-animation>
@@ -66,7 +66,7 @@
             <a-text value="南" position="0 2.1 4.95" color="#FFFFFF" align="center" width="6"></a-text>
 
             <!-- 東の壁(青緑色)（Xプラス方向） -->
-            <a-box  id="east"position="5 1 0" rotation="0 90 0" depth="0.1" height="2" width="10" color="#0077BE" material="opacity: 0.5; transparent: true; side: double"
+            <a-box  id="east"position="5 1 0" rotation="0 90 0" depth="0.1" height="2" width="10" color="#0077BE" material="opacity: 0.2; transparent: true; side: double"
             event-set__enter="_event: mouseenter; material.color: #9acd32; scale: 3 1 1"
             event-set__leave="_event: mouseleave; material.color: #0077BE; scale: 1 1 1">
                 <a-animation attribute="rotation" begin="click" dur="500" fill="backwards" to="30 30 360"></a-animation>
@@ -74,7 +74,7 @@
             <a-text value="東" position="4.95 2.1 0" rotation="0 -90 0" color="#FFFFFF" align="center" width="6"></a-text>
 
             <!-- 西の壁(白色)（Xマイナス方向） -->
-            <a-box id="west"position="-5 1 0" rotation="0 90 0" depth="0.1" height="2" width="10" color="#FFFFFF" material="opacity: 0.5; transparent: true; side: double"
+            <a-box id="west"position="-5 1 0" rotation="0 90 0" depth="0.1" height="2" width="10" color="#FFFFFF" material="opacity: 0.2; transparent: true; side: double"
             event-set__enter="_event: mouseenter; material.color: yellowgreen; scale: 3 1 1"
             event-set__leave="_event: mouseleave; material.color: #FFFFFF; scale: 1 1 1">
                 <a-animation attribute="rotation" begin="click" dur="500" fill="backwards" to="30 30 360"></a-animation>
